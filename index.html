@@ -35,18 +35,7 @@
         .btn-whatsapp { flex: 1; background: var(--whatsapp); color: white; text-align: center; padding: 10px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 0.95rem; }
         .btn-call:hover { background: #15803d; }
         .btn-whatsapp:hover { background: #20ba5a; }
-
-        /* Registration Form Section */
-        .register-section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 50px; border-top: 5px solid var(--success); }
-        .register-section h2 { text-align: center; margin-bottom: 10px; color: var(--text-main); }
-        .register-section p { text-align: center; color: var(--text-muted); margin-bottom: 25px; }
-        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; outline: none; font-size: 0.95rem; }
-        .btn-submit { background: var(--success); color: white; border: none; padding: 12px 20px; font-size: 1rem; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 10px; }
-        .btn-submit:hover { background: #15803d; }
-
+        
         footer { text-align: center; padding: 30px; background: #1e293b; color: #94a3b8; margin-top: 50px; }
     </style>
 </head>
@@ -64,16 +53,80 @@
         <h2 class="section-title">Verified Service Professionals</h2>
         <div class="services-grid" id="expertList">
             
-            <div class="service-card" data-search="electrician ramesh wiring">
+            <!-- Electricians -->
+            <div class="service-card" data-search="electrician suresh wiring">
                 <h3>💡 Electrician</h3>
-                <span class="expert-name">Expert: Ramesh Kumar (5 Years Exp)</span>
+                <span class="expert-name">Expert: Suresh Electrician Contract (4.9 ⭐)</span>
                 <p>Specialist in home wiring, switchboard repair, MCB trip fixing, and fan installation.</p>
                 <div class="action-buttons">
-                    <a href="tel:+919876543210" class="btn-call">📞 Call Now</a>
-                    <a href="https://wa.me/919876543210" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                    <a href="tel:+919833083766" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/919833083766" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
                 </div>
             </div>
 
+            <div class="service-card" data-search="electrician imam electrical">
+                <h3>💡 Electrician</h3>
+                <span class="expert-name">Expert: Imam Electrical Work (4.9 ⭐)</span>
+                <p>Expert electrical installation, switch repair, and 24/7 on-site emergency service.</p>
+                <div class="action-buttons">
+                    <a href="tel:+919653688557" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/919653688557" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="service-card" data-search="electrician naem electric">
+                <h3>💡 Electrician</h3>
+                <span class="expert-name">Expert: Naeem Electric (5.0 ⭐)</span>
+                <p>Reliable electrical repair, wiring checks, and maintenance work near NTCC school.</p>
+                <div class="action-buttons">
+                    <a href="tel:+918779411744" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/918779411744" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- AC Repair -->
+            <div class="service-card" data-search="ac repair smart cooling">
+                <h3>❄️ AC Repair & Service</h3>
+                <span class="expert-name">Expert: Smart AC Service (4.9 ⭐)</span>
+                <p>Complete AC servicing, gas charging, cooling issues, and new split/window installation.</p>
+                <div class="action-buttons">
+                    <a href="tel:+919833765802" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/919833765802" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Cook & Maid Services -->
+            <div class="service-card" data-search="cook chef kaamwalibais">
+                <h3>👨‍🍳 Personal Cook & Home Help</h3>
+                <span class="expert-name">Expert: Kaamwalibais.com Services (3.9 ⭐)</span>
+                <p>Professional live-in cooks and home chefs for healthy, fresh, and tasty meals every day.</p>
+                <div class="action-buttons">
+                    <a href="tel:+918767078888" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/918767078888" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="service-card" data-search="catering morningstar luxury catering">
+                <h3>🍲 Luxury Catering & Cook</h3>
+                <span class="expert-name">Expert: Morningstar Services (4.9 ⭐)</span>
+                <p>Catering, private chef service, and custom food preparation for parties and events.</p>
+                <div class="action-buttons">
+                    <a href="tel:+917039757510" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/917039757510" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="service-card" data-search="maid service cook nanny">
+                <h3>🧹 Domestic Help & Cook Service</h3>
+                <span class="expert-name">Expert: Domestic Help Maid Agency (5.0 ⭐)</span>
+                <p>Full time cook service, 24 hours nanny, and verified domestic helpers in Mumbai.</p>
+                <div class="action-buttons">
+                    <a href="tel:+918369811324" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/918369811324" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Plumber & Carpenter -->
             <div class="service-card" data-search="plumber suresh leakage pipe">
                 <h3>🚰 Plumber</h3>
                 <span class="expert-name">Expert: Suresh Sharma (7 Years Exp)</span>
@@ -81,36 +134,6 @@
                 <div class="action-buttons">
                     <a href="tel:+919123456789" class="btn-call">📞 Call Now</a>
                     <a href="https://wa.me/919123456789" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="service-card" data-search="ac repair amit cooling">
-                <h3>❄️ AC Repair & Service</h3>
-                <span class="expert-name">Expert: Amit Cooling Solutions</span>
-                <p>Complete AC servicing, gas charging, water cooling issues, and new split/window installation.</p>
-                <div class="action-buttons">
-                    <a href="tel:+919988776655" class="btn-call">📞 Call Now</a>
-                    <a href="https://wa.me/919988776655" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="service-card" data-search="cleaning priya sofa home">
-                <h3>🧹 Deep House Cleaning</h3>
-                <span class="expert-name">Expert: Priya Cleaning Hub</span>
-                <p>Professional deep cleaning for kitchens, bathrooms, sofa sets, carpets, and full houses.</p>
-                <div class="action-buttons">
-                    <a href="tel:+919811223344" class="btn-call">📞 Call Now</a>
-                    <a href="https://wa.me/919811223344" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="service-card" data-search="painter vikash wall paint">
-                <h3>🎨 Home Painter</h3>
-                <span class="expert-name">Expert: Vikash Paints & Decor</span>
-                <p>Interior & exterior wall painting, texture designs, waterproofing solutions, and putty work.</p>
-                <div class="action-buttons">
-                    <a href="tel:+919755443322" class="btn-call">📞 Call Now</a>
-                    <a href="https://wa.me/919755443322" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
                 </div>
             </div>
 
@@ -124,65 +147,7 @@
                 </div>
             </div>
 
-            <div class="service-card" data-search="cook chef food catering">
-                <h3>👨‍🍳 Personal Cook / Chef</h3>
-                <span class="expert-name">Expert: Manoj Kitchen Services</span>
-                <p>Hire expert home chefs for daily meals, family gatherings, or small parties.</p>
-                <div class="action-buttons">
-                    <a href="tel:+919533221100" class="btn-call">📞 Call Now</a>
-                    <a href="https://wa.me/919533221100" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
-                </div>
-            </div>
-
-            <div class="service-card" data-search="driver car driver personal">
-                <h3>🚗 Private Driver</h3>
-                <span class="expert-name">Expert: Sunil Driving Hub</span>
-                <p>Experienced and verified drivers for local city travel or outstation trips.</p>
-                <div class="action-buttons">
-                    <a href="tel:+919422110099" class="btn-call">📞 Call Now</a>
-                    <a href="https://wa.me/919422110099" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
-                </div>
-            </div>
-
         </div>
-
-        <!-- Worker Registration Section -->
-        <div class="register-section">
-            <h2>👷 Are you a Service Professional?</h2>
-            <p>Register your service on LocalService to get direct customer calls and WhatsApp messages.</p>
-            <form onsubmit="alert('Thank you! Your registration details have been noted.'); return false;">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Your Full Name</label>
-                        <input type="text" placeholder="e.g. Rajesh Kumar" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Select Service Type</label>
-                        <select required>
-                            <option value="">Choose Service</option>
-                            <option value="Electrician">Electrician</option>
-                            <option value="Plumber">Plumber</option>
-                            <option value="AC Repair">AC Repair</option>
-                            <option value="House Cleaning">House Cleaning</option>
-                            <option value="Painter">Painter</option>
-                            <option value="Carpenter">Carpenter</option>
-                            <option value="Cook">Personal Cook</option>
-                            <option value="Driver">Private Driver</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone / WhatsApp Number</label>
-                        <input type="tel" placeholder="e.g. +91 9876543210" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Short Description of Your Experience</label>
-                    <input type="text" placeholder="e.g. 5 Years experience in home wiring & repairs" required>
-                </div>
-                <button type="submit" class="btn-submit">Register Now</button>
-            </form>
-        </div>
-
     </div>
 
     <footer>
