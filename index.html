@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalFix - Real Verified Experts Directory</title>
+    <title>LocalFix - Real Verified Experts & Business Directory</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -35,7 +35,19 @@
         .btn-whatsapp { flex: 1; background: var(--whatsapp); color: white; text-align: center; padding: 10px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 0.95rem; }
         .btn-call:hover { background: #15803d; }
         .btn-whatsapp:hover { background: #20ba5a; }
-        
+
+        /* Registration Form Section */
+        .register-section { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 50px; border-top: 5px solid var(--success); }
+        .register-section h2 { text-align: center; margin-bottom: 10px; color: var(--text-main); font-size: 1.8rem; }
+        .register-section p { text-align: center; color: var(--text-muted); margin-bottom: 30px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-main); }
+        .form-group input, .form-group select { width: 100%; padding: 14px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-size: 1rem; background: #f8fafc; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); background: #ffffff; }
+        .btn-submit { background: var(--success); color: white; border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 15px; transition: background 0.3s; }
+        .btn-submit:hover { background: #15803d; }
+
         footer { text-align: center; padding: 30px; background: #1e293b; color: #94a3b8; margin-top: 50px; }
     </style>
 </head>
@@ -43,7 +55,7 @@
 
     <header>
         <h1>LocalFix 🛠️</h1>
-        <p>Real Verified Local Experts Directory from Google Maps</p>
+        <p>Real Verified Local Experts & Business Directory</p>
         <div class="search-box">
             <input type="text" id="searchBar" onkeyup="filterExperts()" placeholder="Search service or expert name...">
         </div>
@@ -51,9 +63,11 @@
 
     <div class="container">
         <h2 class="section-title">Verified Service Professionals</h2>
+        
+        <!-- Experts List Container -->
         <div class="services-grid" id="expertList">
             
-            <!-- Electricians -->
+            <!-- Default Verified Experts -->
             <div class="service-card" data-search="electrician suresh wiring">
                 <h3>💡 Electrician</h3>
                 <span class="expert-name">Suresh Electrician Contract (4.9 ⭐)</span>
@@ -84,7 +98,6 @@
                 </div>
             </div>
 
-            <!-- Cook & Maid Services -->
             <div class="service-card" data-search="cook chef kaamwalibais">
                 <h3>👨‍🍳 Personal Cook & Home Help</h3>
                 <span class="expert-name">Kaamwalibais.com Services (3.9 ⭐)</span>
@@ -116,6 +129,48 @@
             </div>
 
         </div>
+
+        <!-- Add Your Business Registration Form Section -->
+        <div class="register-section">
+            <h2>👷 Register Your Business / Add Service</h2>
+            <p>Add your business or service profile to LocalFix to receive direct customer calls and inquiries.</p>
+            <form id="businessForm" onsubmit="addBusiness(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Business / Your Name</label>
+                        <input type="text" id="bName" placeholder="e.g. Sharma Electric Works" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Category</label>
+                        <select id="bCategory" required>
+                            <option value="">Choose Service Type</option>
+                            <option value="💡 Electrician">Electrician</option>
+                            <option value="🚰 Plumber">Plumber</option>
+                            <option value="❄️ AC Repair">AC Repair</option>
+                            <option value="👨‍🍳 Personal Cook">Personal Cook & Chef</option>
+                            <option value="🧹 Cleaning & Maid">Cleaning & Maid Service</option>
+                            <option value="🍲 Catering">Catering Services</option>
+                            <option value="🪑 Carpenter">Carpenter</option>
+                            <option value="🎨 Painter">Painter</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone / WhatsApp Number</label>
+                        <input type="tel" id="bPhone" placeholder="e.g. 9876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label>City / Area</label>
+                        <input type="text" id="bCity" placeholder="e.g. Kandivali, Mumbai" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Work Description / Details</label>
+                    <input type="text" id="bDesc" placeholder="e.g. Specialist in home wiring and repairs" required>
+                </div>
+                <button type="submit" class="btn-submit">Add My Business</button>
+            </form>
+        </div>
+
     </div>
 
     <footer>
@@ -123,6 +178,7 @@
     </footer>
 
     <script>
+        // Search functionality
         function filterExperts() {
             let input = document.getElementById('searchBar').value.toLowerCase();
             let cards = document.getElementsByClassName('service-card');
@@ -135,6 +191,37 @@
                     cards[i].style.display = "none";
                 }
             }
+        }
+
+        // Add dynamic business function
+        function addBusiness(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('bName').value;
+            let category = document.getElementById('bCategory').value;
+            let phone = document.getElementById('bPhone').value;
+            let city = document.getElementById('bCity').value;
+            let desc = document.getElementById('bDesc').value;
+
+            let expertList = document.getElementById('expertList');
+            
+            let newCard = document.createElement('div');
+            newCard.className = 'service-card';
+            newCard.setAttribute('data-search', (name + " " + category + " " + city).toLowerCase());
+            
+            newCard.innerHTML = `
+                <h3>${category}</h3>
+                <span class="expert-name">${name} (${city}) ⭐ New</span>
+                <p>${desc}</p>
+                <div class="action-buttons">
+                    <a href="tel:+91${phone}" class="btn-call">📞 Call Now</a>
+                    <a href="https://wa.me/91${phone}" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+                </div>
+            `;
+            
+            expertList.prepend(newCard);
+            alert('Success! Your business has been added to the directory.');
+            document.getElementById('businessForm').reset();
         }
     </script>
 
