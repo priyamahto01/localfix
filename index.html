@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalFix - Trusted Local Services Marketplace</title>
+    <title>LocalFix - 1M+ Local Services Marketplace</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -13,165 +13,99 @@
             --text-main: #1e293b;
             --text-muted: #64748b;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-        .search-box {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .search-box input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
-        .search-box button {
-            background: var(--primary-dark);
-            color: white;
-            border: none;
-            padding: 0 25px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: var(--text-main);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .service-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        .book-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 500;
-        }
-        .book-btn:hover {
-            background: var(--primary-dark);
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #e2e8f0;
-            color: var(--text-muted);
-            margin-top: 50px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 60px 20px; text-align: center; }
+        header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 25px; }
+        .search-box { max-width: 600px; margin: 0 auto; display: flex; background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .search-box input { flex: 1; padding: 16px 22px; border: none; outline: none; font-size: 1rem; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 30px; font-size: 2rem; color: var(--text-main); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--primary); }
+        .service-card h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.3rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
+        .book-btn { background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: 600; }
+        .book-btn:hover { background: var(--primary-dark); }
+        footer { text-align: center; padding: 30px; background: #1e293b; color: #94a3b8; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>LocalFix 🛠️</h1>
-        <p>Aapke ghar ki har problem ka pakka hal – Trusted Local Services at Your Doorstep</p>
+        <p>Explore over 1,000,000+ local professional services instantly</p>
         <div class="search-box">
-            <input type="text" placeholder="Search service (e.g. Electrician, Plumber)...">
-            <button>Search</button>
+            <input type="text" id="searchBar" onkeyup="filterServices()" placeholder="Search from 1M+ services (e.g. Electrician, Cook, Painter)...">
         </div>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Popular Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>💡 Electrician</h3>
-                <p>Wiring, switch repair, fan installation, and all electrical works.</p>
-                <a href="#contact" class="book-btn">Book Now</a>
+        <h2 class="section-title">Available Services</h2>
+        <div class="services-grid" id="serviceList">
+            <div class="service-card" data-name="electrician wiring repair">
+                <h3>💡 Electrician & Wiring</h3>
+                <p>Expert electrical repair, switchboards, and fan fittings.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
             </div>
-            <div class="service-card">
-                <h3>🚰 Plumber</h3>
-                <p>Leakage fixing, tap installation, pipe fitting, and bathroom cleaning.</p>
-                <a href="#contact" class="book-btn">Book Now</a>
+            <div class="service-card" data-name="plumber leakage pipe">
+                <h3>🚰 Plumber & Pipe Fitting</h3>
+                <p>Tap leakage, bathroom pipeline fittings, and water tanks.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
             </div>
-            <div class="service-card">
-                <h3>❄️ AC Repair</h3>
-                <p>AC servicing, gas filling, cooling issues, and new installation.</p>
-                <a href="#contact" class="book-btn">Book Now</a>
+            <div class="service-card" data-name="ac repair cooling technician">
+                <h3>❄️ AC Repair & Service</h3>
+                <p>AC gas filling, cooling maintenance, and installation.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
             </div>
-            <div class="service-card">
-                <h3>🧹 Home Cleaning</h3>
-                <p>Deep cleaning for kitchen, sofa, bathroom, and entire house.</p>
-                <a href="#contact" class="book-btn">Book Now</a>
+            <div class="service-card" data-name="cleaning home sofa deep">
+                <h3>🧹 Deep House Cleaning</h3>
+                <p>Complete home, kitchen, and sofa cleaning services.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
             </div>
-            <div class="service-card">
-                <h3>🎨 Painter</h3>
-                <p>Interior/exterior wall painting, waterproofing, and touch-ups.</p>
-                <a href="#contact" class="book-btn">Book Now</a>
+            <div class="service-card" data-name="painter wall painting color">
+                <h3>🎨 Home Painter</h3>
+                <p>Interior and exterior wall painting with waterproofing.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-name="carpenter furniture bed door">
                 <h3>🪑 Carpenter</h3>
-                <p>Furniture making, door lock repair, modular kitchen setup.</p>
-                <a href="#contact" class="book-btn">Book Now</a>
+                <p>Custom wooden furniture, door repairs, and locks.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+            </div>
+            <div class="service-card" data-name="cook chef food catering">
+                <h3>👨‍🍳 Personal Cook / Chef</h3>
+                <p>Hire expert home chefs for daily meals or parties.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+            </div>
+            <div class="service-card" data-name="driver car driver personal">
+                <h3>🚗 Private Driver</h3>
+                <p>Experienced drivers for local city travel or outstation trips.</p>
+                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
             </div>
         </div>
     </div>
 
-    <footer id="contact">
-        <p>&copy; 2026 LocalFix. All rights reserved. | Contact: support@localfix.com | Helpline: +91 98765 43210</p>
+    <footer>
+        <p>&copy; 2026 LocalFix Marketplace. Serving millions of users across India.</p>
     </footer>
+
+    <script>
+        function filterServices() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let cards = document.getElementsByClassName('service-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name');
+                if (name.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
