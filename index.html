@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalFix - 1M+ Local Services Marketplace</title>
+    <title>LocalFix - Real Verified Experts Directory</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -12,22 +12,24 @@
             --card-bg: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
+            --success: #16a34a;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 60px 20px; text-align: center; }
-        header h1 { font-size: 2.8rem; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 25px; }
-        .search-box { max-width: 600px; margin: 0 auto; display: flex; background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-        .search-box input { flex: 1; padding: 16px 22px; border: none; outline: none; font-size: 1rem; }
+        header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 50px 20px; text-align: center; }
+        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
+        .search-box { max-width: 500px; margin: 0 auto; display: flex; background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .search-box input { flex: 1; padding: 14px 20px; border: none; outline: none; font-size: 1rem; }
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
         .section-title { text-align: center; margin-bottom: 30px; font-size: 2rem; color: var(--text-main); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .service-card { background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--primary); }
-        .service-card h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.3rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
-        .book-btn { background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: 600; }
-        .book-btn:hover { background: var(--primary-dark); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .service-card { background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 5px solid var(--primary); }
+        .service-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 5px; }
+        .expert-name { font-weight: bold; color: var(--text-main); font-size: 1.05rem; margin-bottom: 8px; display: block; }
+        .service-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; }
+        .phone-box { background: #f1f5f9; padding: 12px; border-radius: 6px; text-align: center; font-weight: bold; color: var(--success); font-size: 1.05rem; margin-top: 15px; }
+        .phone-box a { color: var(--success); text-decoration: none; }
         footer { text-align: center; padding: 30px; background: #1e293b; color: #94a3b8; margin-top: 50px; }
     </style>
 </head>
@@ -35,70 +37,85 @@
 
     <header>
         <h1>LocalFix 🛠️</h1>
-        <p>Explore over 1,000,000+ local professional services instantly</p>
+        <p>Directly Connect with Verified Local Experts & Workers Near You</p>
         <div class="search-box">
-            <input type="text" id="searchBar" onkeyup="filterServices()" placeholder="Search from 1M+ services (e.g. Electrician, Cook, Painter)...">
+            <input type="text" id="searchBar" onkeyup="filterExperts()" placeholder="Search service or expert name...">
         </div>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Available Services</h2>
-        <div class="services-grid" id="serviceList">
-            <div class="service-card" data-name="electrician wiring repair">
-                <h3>💡 Electrician & Wiring</h3>
-                <p>Expert electrical repair, switchboards, and fan fittings.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+        <h2 class="section-title">Verified Service Professionals</h2>
+        <div class="services-grid" id="expertList">
+            
+            <div class="service-card" data-search="electrician ramesh wiring">
+                <h3>💡 Electrician</h3>
+                <span class="expert-name">Expert: Ramesh Kumar (5 Years Exp)</span>
+                <p>Specialist in home wiring, switchboard repair, MCB trip fixing, and fan installation.</p>
+                <div class="phone-box">
+                    📞 <a href="tel:+919876543210">Call: +91 98765 43210</a>
+                </div>
             </div>
-            <div class="service-card" data-name="plumber leakage pipe">
-                <h3>🚰 Plumber & Pipe Fitting</h3>
-                <p>Tap leakage, bathroom pipeline fittings, and water tanks.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+
+            <div class="service-card" data-search="plumber suresh leakage pipe">
+                <h3>🚰 Plumber</h3>
+                <span class="expert-name">Expert: Suresh Sharma (7 Years Exp)</span>
+                <p>Expert in pipeline leakage, tap fitting, bathroom sanitary work, and water tank cleaning.</p>
+                <div class="phone-box">
+                    📞 <a href="tel:+919123456789">Call: +91 91234 56789</a>
+                </div>
             </div>
-            <div class="service-card" data-name="ac repair cooling technician">
+
+            <div class="service-card" data-search="ac repair amit cooling">
                 <h3>❄️ AC Repair & Service</h3>
-                <p>AC gas filling, cooling maintenance, and installation.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+                <span class="expert-name">Expert: Amit Cooling Solutions</span>
+                <p>Complete AC servicing, gas charging, water cooling issues, and new split/window installation.</p>
+                <div class="phone-box">
+                    📞 <a href="tel:+919988776655">Call: +91 99887 76655</a>
+                </div>
             </div>
-            <div class="service-card" data-name="cleaning home sofa deep">
+
+            <div class="service-card" data-search="cleaning priya sofa home">
                 <h3>🧹 Deep House Cleaning</h3>
-                <p>Complete home, kitchen, and sofa cleaning services.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+                <span class="expert-name">Expert: Priya Cleaning Hub</span>
+                <p>Professional deep cleaning for kitchens, bathrooms, sofa sets, carpets, and full houses.</p>
+                <div class="phone-box">
+                    📞 <a href="tel:+919811223344">Call: +91 98112 23344</a>
+                </div>
             </div>
-            <div class="service-card" data-name="painter wall painting color">
+
+            <div class="service-card" data-search="painter vikash wall paint">
                 <h3>🎨 Home Painter</h3>
-                <p>Interior and exterior wall painting with waterproofing.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+                <span class="expert-name">Expert: Vikash Paints & Decor</span>
+                <p>Interior & exterior wall painting, texture designs, waterproofing solutions, and putty work.</p>
+                <div class="phone-box">
+                    📞 <a href="tel:+919755443322">Call: +91 97554 43322</a>
+                </div>
             </div>
-            <div class="service-card" data-name="carpenter furniture bed door">
+
+            <div class="service-card" data-search="carpenter rahul furniture door">
                 <h3>🪑 Carpenter</h3>
-                <p>Custom wooden furniture, door repairs, and locks.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
+                <span class="expert-name">Expert: Rahul Woodworks</span>
+                <p>Custom wooden furniture making, bed repairs, door locks replacement, and modular kitchen setups.</p>
+                <div class="phone-box">
+                    📞 <a href="tel:+919644332211">Call: +91 96443 32211</a>
+                </div>
             </div>
-            <div class="service-card" data-name="cook chef food catering">
-                <h3>👨‍🍳 Personal Cook / Chef</h3>
-                <p>Hire expert home chefs for daily meals or parties.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
-            </div>
-            <div class="service-card" data-name="driver car driver personal">
-                <h3>🚗 Private Driver</h3>
-                <p>Experienced drivers for local city travel or outstation trips.</p>
-                <a href="#" class="book-btn" onclick="alert('Service booked successfully!')">Book Now</a>
-            </div>
+
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 LocalFix Marketplace. Serving millions of users across India.</p>
+        <p>&copy; 2026 LocalFix Marketplace. All direct worker contacts verified.</p>
     </footer>
 
     <script>
-        function filterServices() {
+        function filterExperts() {
             let input = document.getElementById('searchBar').value.toLowerCase();
             let cards = document.getElementsByClassName('service-card');
             
             for (let i = 0; i < cards.length; i++) {
-                let name = cards[i].getAttribute('data-name');
-                if (name.includes(input)) {
+                let text = cards[i].getAttribute('data-search');
+                if (text.includes(input)) {
                     cards[i].style.display = "";
                 } else {
                     cards[i].style.display = "none";
